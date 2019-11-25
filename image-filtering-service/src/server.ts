@@ -1,6 +1,5 @@
-import express from 'express';
 import bodyParser from 'body-parser';
-import { Response, Request } from 'express';
+import express, { Response, Request } from 'express';
 import { ImageRouter } from './controllers/v1/image.router';
 
 (async () => {
