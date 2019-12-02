@@ -4,7 +4,7 @@ metadata:
   name: pod-example
 spec:
   containers:
-  - image: scheele/reverseproxy
+  - image: makinwa37/reverseproxy
     name: reverseproxy
     imagePullPolicy: Always          
     resources:
