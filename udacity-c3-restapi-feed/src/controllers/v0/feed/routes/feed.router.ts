@@ -51,8 +51,29 @@ router.get('/:id',
 router.patch('/:id', 
     requireAuth, 
     async (req: Request, res: Response) => {
-        //@TODO try it yourself
-        res.send(500).send("not implemented")
+        const caption = req.body.caption;
+        const fileName = req.body.url;
+
+        let { id } = req.params;
+        const item = await FeedItem.findByPk(id);
+
+        // check Caption is valid
+        if (!caption) {
+            return res.status(400).send({ message: 'Caption is required or malformed' });
+        }
+
+        // check Filename is valid
+        if (!fileName) {
+            return res.status(400).send({ message: 'File url is required' });
+        }
+
+        item.caption = caption;
+        item.url = fileName;
+
+        const updated_item = await item.save();
+
+        updated_item.url = AWS.getGetSignedUrl(updated_item.url);
+        res.status(201).send(updated_item);
 });
 
 
