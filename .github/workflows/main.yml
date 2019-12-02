@@ -1,0 +1,9 @@
+- name: Dependa-bolt
+  uses: malept/github-action-dependabolt@v2.0.1
+  with:
+    # The email to use when committing to the repository, defaults to the repository owner's fake GitHub email.
+    gitCommitEmail: # optional, default is 
+    # Any extra `git commit` flags to pass, such as `--no-verify`.
+    gitCommitFlags: # optional, default is 
+    # The value to set `git config user.name`, defaults to the repository owner.
+    gitCommitUser: # optional
